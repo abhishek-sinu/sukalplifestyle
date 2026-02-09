@@ -3,9 +3,24 @@ import { Link } from 'react-router-dom';
 import Header from './Header';
 import Footer from './Footer';
 
+import { useState } from 'react';
+
 function App() {
+  const [modalOpen, setModalOpen] = useState(false);
+  const [modalImg, setModalImg] = useState("");
+
+  const openModal = (imgSrc) => {
+    setModalImg(imgSrc);
+    setModalOpen(true);
+  };
+  const closeModal = () => {
+    setModalOpen(false);
+    setModalImg("");
+  };
+
   return (
-    <div className="min-h-screen bg-white">
+    <>
+      <div className="min-h-screen bg-white">
       <Header />
 
       {/* Hero Section */}
@@ -84,27 +99,27 @@ function App() {
         <div className="max-w-7xl mx-auto">
           <div className="flex items-center justify-between mb-12">
             <h2 className="text-4xl md:text-5xl font-serif font-bold text-gray-900">Featured Products</h2>
-            <a href="#" className="text-gray-500 text-base font-semibold tracking-widest border-b border-gray-300 hover:text-yellow-700 hover:border-yellow-700 transition">VIEW ALL PRODUCTS</a>
+            <Link to="/gallery" className="text-gray-500 text-base font-semibold tracking-widest border-b border-gray-300 hover:text-yellow-700 hover:border-yellow-700 transition">VIEW ALL PRODUCTS</Link>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {/* Product 1 */}
             <div className="relative group overflow-hidden rounded-xl shadow-lg bg-white">
               <span className="absolute top-6 left-6 bg-yellow-600 text-white text-xs font-bold px-4 py-1 rounded uppercase tracking-widest z-20">Bestseller</span>
-              <img src="/product-1.jpg" alt="White Sheets" className="w-full h-96 object-cover group-hover:scale-105 transition-transform duration-500" />
+              <img src="/product-1.jpg" alt="White Sheets" className="w-full h-96 object-cover group-hover:scale-105 transition-transform duration-500 cursor-pointer" onClick={() => openModal('/product-1.jpg')} />
             </div>
             {/* Product 2 */}
             <div className="relative group overflow-hidden rounded-xl shadow-lg bg-white">
               <span className="absolute top-6 left-6 bg-yellow-600 text-white text-xs font-bold px-4 py-1 rounded uppercase tracking-widest z-20">New Arrival</span>
-              <img src="/product-2.jpg" alt="Blue Pillows" className="w-full h-96 object-cover group-hover:scale-105 transition-transform duration-500" />
+              <img src="/White Bed Sheet.png" alt="Blue Pillows" className="w-full h-96 object-cover group-hover:scale-105 transition-transform duration-500 cursor-pointer" onClick={() => openModal('/White Bed Sheet.png')} />
             </div>
             {/* Product 3 */}
             <div className="relative group overflow-hidden rounded-xl shadow-lg bg-white">
-              <img src="/product-3.jpg" alt="White Robe" className="w-full h-96 object-cover group-hover:scale-105 transition-transform duration-500" />
+              <img src="/product-3.jpg" alt="White Robe" className="w-full h-96 object-cover group-hover:scale-105 transition-transform duration-500 cursor-pointer" onClick={() => openModal('/product-3.jpg')} />
             </div>
             {/* Product 4 */}
             <div className="relative group overflow-hidden rounded-xl shadow-lg bg-white">
               <span className="absolute top-6 left-6 bg-yellow-600 text-white text-xs font-bold px-4 py-1 rounded uppercase tracking-widest z-20">Trending</span>
-              <img src="/product-4.jpg" alt="Blue Throw" className="w-full h-96 object-cover group-hover:scale-105 transition-transform duration-500" />
+              <img src="/Gym.png" alt="Blue Throw" className="w-full h-96 object-cover group-hover:scale-105 transition-transform duration-500 cursor-pointer" onClick={() => openModal('/Gym.png')} />
             </div>
           </div>
         </div>
@@ -143,73 +158,77 @@ function App() {
                 </div>
               </div>
             </section>
-                  {/* Contact Section */}
+                  {/* Contact Section with Google Maps */}
       <section id="contact" className="bg-white py-20 px-4">
-        <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-16 items-start">
-          {/* Left: Contact Info */}
-          <div>
-            <div className="uppercase tracking-widest text-yellow-700 font-semibold text-sm mb-2">Get in Touch</div>
-            <h2 className="text-4xl md:text-5xl font-serif font-bold text-gray-900 mb-4">We'd Love to <span className="italic font-serif">Hear from You</span></h2>
-            <p className="text-lg text-gray-500 mb-10">Whether you have a question about our products, need styling advice, or want to explore a partnership — our team is here to help.</p>
-            <div className="space-y-8">
-              <div className="flex items-start gap-4">
-                <div className="bg-[#faf8f5] p-3 rounded-lg flex items-center justify-center">
-                  <FaMapMarkerAlt className="h-6 w-6 text-yellow-700" />
-                </div>
-                <div>
-                  <div className="font-semibold text-gray-900">Visit Us</div>
-                  <div className="text-gray-500">42 Mahal Road, Central District<br />Mumbai, Maharashtra 400001</div>
-                </div>
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-12">
+            <div className="uppercase tracking-widest text-yellow-700 font-semibold text-sm mb-2">Visit Us</div>
+            <h2 className="text-4xl md:text-5xl font-serif font-bold text-gray-900 mb-4">Find Us on the <span className="italic font-serif">Map</span></h2>
+            <p className="text-lg text-gray-500 mb-4">A/306, Rajclassic CHSL, Opp Shalom hospital, Indralok Phase - 6, Bhayander East, Thane – 401105, Mumbai, Maharashtra</p>
+          </div>
+          
+          {/* Google Map Iframe */}
+          <div className="w-full rounded-xl shadow-lg overflow-hidden">
+            <iframe
+              width="100%"
+              height="500"
+              frameBorder="0"
+              style={{ border: 0 }}
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3764.8477883477883!2d72.8699173!3d19.3011111!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7b03c99ba0ff3%3A0x9dca675796f8bf26!2sA%2F306%20Rajclassic%20CHSL%2C%20Indralok%20Phase%206%2C%20Bhayander%20East!5e0!3m2!1sen!2sin!4v1707459600000"
+              allowFullScreen=""
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+              title="Sukalp Office Location"
+            ></iframe>
+          </div>
+
+          {/* Contact Info Below Map */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-16">
+            <div className="text-center">
+              <div className="bg-yellow-100 rounded-lg p-4 inline-flex mb-4">
+                <FaMapMarkerAlt className="h-6 w-6 text-yellow-700" />
               </div>
-              <div className="flex items-start gap-4">
-                <div className="bg-[#faf8f5] p-3 rounded-lg flex items-center justify-center">
-                  <FaPhoneAlt className="h-6 w-6 text-yellow-700" />
-                </div>
-                <div>
-                  <div className="font-semibold text-gray-900">Call Us</div>
-                  <div className="text-gray-500">+91 22 4567 8900</div>
-                </div>
+              <h3 className="font-semibold text-gray-900 mb-2">Visit Us</h3>
+              <p className="text-gray-500 text-sm">A/306, Rajclassic CHSL, Opp Shalom hospital,<br />Indralok Phase - 6, Bhayander East,<br />Thane – 401105, Mumbai, Maharashtra</p>
+            </div>
+            <div className="text-center">
+              <div className="bg-yellow-100 rounded-lg p-4 inline-flex mb-4">
+                <FaPhoneAlt className="h-6 w-6 text-yellow-700" />
               </div>
-              <div className="flex items-start gap-4">
-                <div className="bg-[#faf8f5] p-3 rounded-lg flex items-center justify-center">
-                  <FaEnvelope className="h-6 w-6 text-yellow-700" />
-                </div>
-                <div>
-                  <div className="font-semibold text-gray-900">Email Us</div>
-                  <div className="text-gray-500">hello@sukalplifestyle.com</div>
-                </div>
+              <h3 className="font-semibold text-gray-900 mb-2">Call Us</h3>
+              <p className="text-gray-500">9307020467</p>
+            </div>
+            <div className="text-center">
+              <div className="bg-yellow-100 rounded-lg p-4 inline-flex mb-4">
+                <FaEnvelope className="h-6 w-6 text-yellow-700" />
               </div>
+              <h3 className="font-semibold text-gray-900 mb-2">Email Us</h3>
+              <p className="text-gray-500">sukalplifestyles@gmail.com</p>
             </div>
           </div>
-          {/* Right: Contact Form */}
-          <form className="space-y-6">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <div>
-                <label className="block text-xs font-semibold tracking-widest text-gray-500 uppercase mb-2">Full Name</label>
-                <input type="text" className="w-full bg-[#f5f6fa] rounded px-4 py-3 text-gray-900 focus:outline-none focus:ring-2 focus:ring-yellow-500" placeholder="John Doe" />
-              </div>
-              <div>
-                <label className="block text-xs font-semibold tracking-widest text-gray-500 uppercase mb-2">Email Address</label>
-                <input type="email" className="w-full bg-[#f5f6fa] rounded px-4 py-3 text-gray-900 focus:outline-none focus:ring-2 focus:ring-yellow-500" placeholder="john@example.com" />
-              </div>
-            </div>
-            <div>
-              <label className="block text-xs font-semibold tracking-widest text-gray-500 uppercase mb-2">Subject</label>
-              <input type="text" className="w-full bg-[#f5f6fa] rounded px-4 py-3 text-gray-900 focus:outline-none focus:ring-2 focus:ring-yellow-500" placeholder="How can we help?" />
-            </div>
-            <div>
-              <label className="block text-xs font-semibold tracking-widest text-gray-500 uppercase mb-2">Message</label>
-              <textarea className="w-full bg-[#f5f6fa] rounded px-4 py-3 text-gray-900 focus:outline-none focus:ring-2 focus:ring-yellow-500 min-h-[120px]" placeholder="Tell us what you're looking for…"></textarea>
-            </div>
-            <button type="submit" className="mt-4 flex items-center gap-2 px-8 py-3 bg-[#101c36] text-white font-semibold rounded shadow hover:bg-yellow-700 transition uppercase tracking-widest">
-              <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" /></svg>
-              Send Message
-            </button>
-          </form>
         </div>
       </section>
       <Footer />
-    </div>
+      </div>
+      {/* Modal for zoomed image */}
+      {modalOpen && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-sm">
+          <div className="relative bg-white rounded-lg shadow-lg p-4 max-w-2xl w-full flex flex-col items-center">
+            <button
+              className="absolute top-2 right-2 text-3xl text-gray-700 hover:text-yellow-700 focus:outline-none"
+              onClick={closeModal}
+              aria-label="Close"
+            >
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                <line x1="18" y1="6" x2="6" y2="18" />
+                <line x1="6" y1="6" x2="18" y2="18" />
+              </svg>
+            </button>
+            <img src={modalImg} alt="Full Product" className="w-full h-auto max-h-[70vh] rounded object-contain mb-4" />
+          </div>
+        </div>
+      )}
+    </>
   );
 }
 
