@@ -1,12 +1,14 @@
-export default function Header({ navItems }) {
+import { Link } from 'react-router-dom';
+import { FaSearch, FaUser, FaShoppingBag } from 'react-icons/fa';
+ export default function Header({ navItems }) {
   // Default nav items for homepage
   const defaultNav = [
     { label: 'HOME', link: '/', type: 'link' },
     { label: 'COLLECTIONS', link: '#collections', type: 'anchor' },
     { label: 'PRODUCTS', link: '#products', type: 'anchor' },
     { label: 'GALLERY', link: '/gallery', type: 'link' },
-    { label: 'ABOUT', link: '#', type: 'anchor' },
-    { label: 'CONTACT', link: '#contact', type: 'anchor' },
+    { label: 'ABOUT', link: '/about', type: 'link' },
+    { label: 'CONTACT', link: '/contact', type: 'link' },
   ];
   const items = navItems || defaultNav;
   return (
@@ -24,7 +26,6 @@ export default function Header({ navItems }) {
       <div className="flex gap-4 items-center text-gray-700 text-xl">
         <button className="hover:text-yellow-700"><FaSearch /></button>
         <button className="hover:text-yellow-700"><FaUser /></button>
-        <button className="hover:text-yellow-700"><FaShoppingBag /></button>
       </div>
     </nav>
   );

@@ -11,21 +11,20 @@ const galleryImages = [
   { src: '/hand.png', category: 'Premium Fabrics', name: 'Hand Towel' },
   { src: '/spa.png', category: 'Premium Fabrics', name: 'Spa Towel' },
   { src: '/Gym.png', category: 'Premium Fabrics', name: 'Gym Towel' },
+  { src: '/bamboo.jpg', category: 'Premium Fabrics', name: 'Gym Towel' },
+  { src: '/microfiber.jpg', category: 'Premium Fabrics', name: 'Gym Towel' },
+  { src: '/kids.png', category: 'Premium Fabrics', name: 'Gym Towel' },
   // Luxury Bedding
-  { src: 'https://oaidalleapiprodscus.blob.core.windows.net/private/org-xxx/img-bedding1.jpg', category: 'Luxury Bedding', name: 'Premium Bedsheet Set' },
-  { src: 'https://oaidalleapiprodscus.blob.core.windows.net/private/org-xxx/img-bedding2.jpg', category: 'Luxury Bedding', name: 'Cotton Comforter' },
-  { src: 'https://oaidalleapiprodscus.blob.core.windows.net/private/org-xxx/img-bedding3.jpg', category: 'Luxury Bedding', name: 'Duvet & Pillow Set' },
-  // Home Furnishings
-  { src: 'https://oaidalleapiprodscus.blob.core.windows.net/private/org-xxx/img-furnish1.jpg', category: 'Home Furnishings', name: 'Velvet Curtains' },
-  { src: 'https://oaidalleapiprodscus.blob.core.windows.net/private/org-xxx/img-furnish2.jpg', category: 'Home Furnishings', name: 'Gold-Trim Cushions' },
-  { src: 'https://oaidalleapiprodscus.blob.core.windows.net/private/org-xxx/img-furnish3.jpg', category: 'Home Furnishings', name: 'Luxury Throw Blanket' },
+  { src: '/White Bed Sheet.png', category: 'Luxury Bedding', name: 'Premium Bedsheet Set' },
+   { src: '/Printed Bed Sheet.png', category: 'Luxury Bedding', name: 'Premium Printed Bedsheet Set' },
+  { src: '/Cotton Comforter.png', category: 'Luxury Bedding', name: 'Cotton Comforter' },
+  { src: '/Duvet & Pillow Set.png', category: 'Luxury Bedding', name: 'Duvet & Pillow Set' },
 ];
 
 const categories = [
   'All',
   'Premium Fabrics',
-  'Luxury Bedding',
-  'Home Furnishings',
+  'Luxury Bedding'
 ];
 
 export default function Gallery() {
