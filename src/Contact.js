@@ -25,7 +25,11 @@ export default function Contact() {
                 </span>
                 <div>
                   <div className="font-semibold text-gray-900">Visit Us</div>
-                  <div className="text-gray-600 text-sm">42 Mahal Road, Central District<br />Mumbai, Maharashtra 400001</div>
+                  <div className="text-gray-600 text-sm">
+                    A/306, Rajclassic CHSL, Opp Shalom hospital,<br />
+                    Indralok Phase - 6, Bhayander East,<br />
+                    Thane – 401105, Mumbai, Maharashtra
+                  </div>
                 </div>
               </div>
               <div className="flex items-center gap-4">
@@ -34,7 +38,7 @@ export default function Contact() {
                 </span>
                 <div>
                   <div className="font-semibold text-gray-900">Call Us</div>
-                  <div className="text-gray-600 text-sm">+91 22 4567 8900</div>
+                  <div className="text-gray-600 text-sm">9307020467</div>
                 </div>
               </div>
               <div className="flex items-center gap-4">
@@ -43,7 +47,7 @@ export default function Contact() {
                 </span>
                 <div>
                   <div className="font-semibold text-gray-900">Email Us</div>
-                  <div className="text-gray-600 text-sm">hello@sukalplifestyle.com</div>
+                  <div className="text-gray-600 text-sm">sukalplifestyles@gmail.com</div>
                 </div>
               </div>
             </div>

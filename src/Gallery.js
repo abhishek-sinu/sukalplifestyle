@@ -42,7 +42,7 @@ export default function Gallery() {
         { label: 'GALLERY', link: '/gallery', type: 'link' }
       ]} />
       {/* Page Title Section */}
-        <div className="relative py-20 px-4 bg-gradient-to-br from-[#e7e1d8] to-[#fff] flex flex-col items-center pt-24 md:pt-28">
+        <div className="relative py-20 px-4 bg-gradient-to-br from-[#e7e1d8] to-[#fff] flex flex-col items-center pt-32 md:pt-28">
         <h1 className="text-5xl md:text-6xl font-serif font-bold text-[#101c36] mb-4 tracking-tight animate-fadeIn">Premium Gallery</h1>
         <p className="text-lg md:text-xl text-gray-600 mb-8 animate-fadeIn">Explore our finest fabrics, bedding, and home furnishings.</p>
       </div>
