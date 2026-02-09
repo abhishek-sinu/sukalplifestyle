@@ -29,6 +29,7 @@ const categories = [
 
 export default function Gallery() {
   const [activeCategory, setActiveCategory] = useState('All');
+  const [zoomImg, setZoomImg] = useState(null); // { src, name }
 
   const filteredImages =
     activeCategory === 'All'
@@ -69,8 +70,10 @@ export default function Gallery() {
         {filteredImages.map((img, idx) => (
           <div
             key={idx}
-            className="relative rounded-2xl overflow-hidden shadow-lg bg-white group animate-fadeIn"
+            className="relative rounded-2xl overflow-hidden shadow-lg bg-white group animate-fadeIn cursor-pointer"
             style={{ animationDelay: `${idx * 0.1}s` }}
+            onClick={() => setZoomImg(img)}
+            title="Click to zoom"
           >
             <img
               src={img.src}
@@ -83,7 +86,26 @@ export default function Gallery() {
             </div>
           </div>
         ))}
-      </div>    
+      </div>
+      {/* Modal for zoomed image */}
+      {zoomImg && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-sm">
+          <div className="relative bg-white rounded-lg shadow-lg p-4 max-w-2xl w-full flex flex-col items-center">
+            <button
+              className="absolute top-2 right-2 text-3xl text-gray-700 hover:text-yellow-700 focus:outline-none"
+              onClick={() => setZoomImg(null)}
+              aria-label="Close"
+            >
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                <line x1="18" y1="6" x2="6" y2="18" />
+                <line x1="6" y1="6" x2="18" y2="18" />
+              </svg>
+            </button>
+            <img src={zoomImg.src} alt={zoomImg.name} className="w-full h-auto max-h-[70vh] rounded object-contain mb-4" />
+            <div className="text-xl font-serif font-bold text-yellow-700 text-center">{zoomImg.name}</div>
+          </div>
+        </div>
+      )}
       <Footer />
     </div>
   );
