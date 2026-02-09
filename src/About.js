@@ -8,6 +8,10 @@ export default function About() {
       <Header />
       <div className="min-h-screen flex flex-col items-center justify-center bg-gradient-to-br from-yellow-50 to-white py-20 px-4">
         <div className="max-w-2xl w-full bg-white rounded-xl shadow-lg p-10 text-center">
+          <div className="flex flex-col items-center mb-6">
+            <img src="/logo.png" alt="Sukalp Logo" className="h-20 w-auto mb-2 drop-shadow-md" />
+            <span className="text-lg font-serif italic font-semibold text-yellow-700" style={{letterSpacing: '0.04em', textShadow: '0 1px 6px #fff8e1'}}>We Think of Your Comfort</span>
+          </div>
           <h1 className="text-5xl font-serif font-bold text-yellow-700 mb-6">About Sukalp</h1>
           <p className="text-lg text-gray-700 mb-4">
             Welcome to <span className="font-semibold text-yellow-700">Sukalp</span> — where luxury meets tradition. Our premium textile and lifestyle brand is dedicated to bringing you the finest fabrics, bedding, and home furnishings, crafted with timeless sophistication and modern elegance.

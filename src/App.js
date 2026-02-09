@@ -24,8 +24,8 @@ function App() {
             Discover our curated collection of premium fabrics, bedding, and home furnishings — designed with timeless sophistication.
           </p>
           <div className="mt-8 flex gap-4">
-            <a href="#" className="px-8 py-3 bg-yellow-500 text-white font-semibold rounded shadow hover:bg-yellow-600 transition">EXPLORE COLLECTIONS</a>
-            <a href="#" className="px-8 py-3 border border-white text-white font-semibold rounded shadow hover:bg-white hover:text-yellow-700 transition">OUR STORY</a>
+            <Link to="/gallery" className="px-8 py-3 bg-yellow-500 text-white font-semibold rounded shadow hover:bg-yellow-600 transition">EXPLORE COLLECTIONS</Link>
+            <Link to="/about" className="px-8 py-3 border border-white text-white font-semibold rounded shadow hover:bg-white hover:text-yellow-700 transition">OUR STORY</Link>
           </div>
         </div>
       </section>
@@ -124,7 +124,7 @@ function App() {
                   <p className="text-lg text-gray-500 mb-10">Every thread we weave, every fabric we create, carries the promise of unparalleled elegance. From the finest Egyptian cotton to the most luxurious silks, we source only the best materials for discerning customers who appreciate the art of fine living.</p>
                   <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mt-8">
                     <div className="text-center">
-                      <div className="text-3xl md:text-4xl font-bold text-yellow-700 mb-1">50+</div>
+                      <div className="text-3xl md:text-4xl font-bold text-yellow-700 mb-1">12+</div>
                       <div className="uppercase text-xs tracking-widest text-gray-500">Years of Heritage</div>
                     </div>
                     <div className="text-center">
@@ -132,8 +132,8 @@ function App() {
                       <div className="uppercase text-xs tracking-widest text-gray-500">Premium Products</div>
                     </div>
                     <div className="text-center">
-                      <div className="text-3xl md:text-4xl font-bold text-yellow-700 mb-1">30+</div>
-                      <div className="uppercase text-xs tracking-widest text-gray-500">Countries Served</div>
+                      <div className="text-3xl md:text-4xl font-bold text-yellow-700 mb-1">100+</div>
+                      <div className="uppercase text-xs tracking-widest text-gray-500">Customer Serving</div>
                     </div>
                     <div className="text-center">
                       <div className="text-3xl md:text-4xl font-bold text-yellow-700 mb-1">100%</div>

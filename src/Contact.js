@@ -12,7 +12,7 @@ export default function Contact() {
           {/* Left: Contact Info */}
           <div>
             <div className="uppercase tracking-widest text-yellow-700 font-semibold text-sm mb-2">Get in Touch</div>
-            <h1 className="text-6xl md:text-7xl font-serif font-bold text-[#101c36] mb-6 leading-tight">
+            <h1 className="text-3xl md:text-4xl font-serif font-bold text-[#101c36] mb-6 leading-tight">
               We'd Love to <span className="italic text-yellow-700">Hear from You</span>
             </h1>
             <p className="mt-6 text-xl text-gray-700 font-medium max-w-lg mb-8">
