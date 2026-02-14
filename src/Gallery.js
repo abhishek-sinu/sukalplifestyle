@@ -11,9 +11,9 @@ const galleryImages = [
   { src: '/hand.png', category: 'Premium Fabrics', name: 'Hand Towel' },
   { src: '/spa.png', category: 'Premium Fabrics', name: 'Spa Towel' },
   { src: '/Gym.png', category: 'Premium Fabrics', name: 'Gym Towel' },
-  { src: '/bamboo.jpg', category: 'Premium Fabrics', name: 'Gym Towel' },
-  { src: '/microfiber.jpg', category: 'Premium Fabrics', name: 'Gym Towel' },
-  { src: '/kids.png', category: 'Premium Fabrics', name: 'Gym Towel' },
+  { src: '/bamboo.jpg', category: 'Premium Fabrics', name: 'Bamboo Towel' },
+  { src: '/microfiber.jpg', category: 'Premium Fabrics', name: 'Micro Fiber Towel' },
+  { src: '/kids.png', category: 'Premium Fabrics', name: 'Kids Towel' },
   // Luxury Bedding
   { src: '/White Bed Sheet.png', category: 'Luxury Bedding', name: 'Premium Bedsheet Set' },
    { src: '/Printed Bed Sheet.png', category: 'Luxury Bedding', name: 'Premium Printed Bedsheet Set' },
@@ -110,3 +110,4 @@ export default function Gallery() {
     </div>
   );
 }
+
