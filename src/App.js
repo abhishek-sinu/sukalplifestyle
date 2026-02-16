@@ -39,6 +39,14 @@ function HeroSlideshow() {
       description: 'Discover runners, covers, and mats to elevate your living spaces.',
       cta1: { label: 'Shop Home Furnishing', link: '/gallery?category=Home%20Furnishing' },
       cta2: { label: 'Our Story', link: '/about' }
+    },
+    {
+      image: '/HP-White Bedsheet.png',
+      title: 'Trusted by Hospitals',
+      subtitle: 'Hospital Products',
+      description: 'Premium white linens, uniforms, and essentials for healthcare and hospitality.',
+      cta1: { label: 'Shop Hospital Products', link: '/gallery?category=Hospital%20Products' },
+      cta2: { label: 'Our Story', link: '/about' }
     }
   ];
   const [current, setCurrent] = useState(0);
