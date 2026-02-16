@@ -9,7 +9,7 @@ import Footer from './Footer';
 function HeroSlideshow() {
   const slides = [
     {
-      image: '/hero-banner.jpg',
+      image: '/home screen.png',
       title: 'Crafted for Elegance',
       subtitle: 'Premium Textile & Lifestyle',
       description: 'Discover our curated collection of premium fabrics, bedding, and home furnishings — designed with timeless sophistication.',
@@ -25,7 +25,7 @@ function HeroSlideshow() {
       cta2: { label: 'Learn More', link: '/about' }
     },
     {
-      image: '/bath.png',
+      image: '/gallery-3-bath.jpg',
       title: 'Spa at Home',
       subtitle: 'Bath Linen Collection',
       description: 'Indulge in plush towels and bath linens for a spa-like experience every day.',
