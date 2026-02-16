@@ -5,15 +5,15 @@ import Footer from './Footer';
 
 const galleryImages = [
   // Premium Fabrics
-  { src: '/bath.png', category: 'Bath Linen', name: 'Bath Towel' },
-  { src: '/beach.png', category: 'Bath Linen', name: 'Beach Towel' },
-  { src: '/face.png', category: 'Bath Linen', name: 'Face Towel' },
-  { src: '/hand.png', category: 'Bath Linen', name: 'Hand Towel' },
-  { src: '/spa.png', category: 'Bath Linen', name: 'Spa Towel' },
-  { src: '/Gym.png', category: 'Bath Linen', name: 'Gym Towel' },
-  { src: '/bamboo.jpg', category: 'Bath Linen', name: 'Bamboo Pattern Towel' },
-  { src: '/microfiber.jpg', category: 'Bath Linen', name: 'MicroFiber Towel' },
-  { src: '/kids.png', category: 'Bath Linen', name: 'Kids Towel' },
+  { src: '/bath.png', category: 'Premium Fabrics', name: 'Bath Towel' },
+  { src: '/beach.png', category: 'Premium Fabrics', name: 'Beach Towel' },
+  { src: '/face.png', category: 'Premium Fabrics', name: 'Face Towel' },
+  { src: '/hand.png', category: 'Premium Fabrics', name: 'Hand Towel' },
+  { src: '/spa.png', category: 'Premium Fabrics', name: 'Spa Towel' },
+  { src: '/Gym.png', category: 'Premium Fabrics', name: 'Gym Towel' },
+  { src: '/bamboo.jpg', category: 'Premium Fabrics', name: 'Gym Towel' },
+  { src: '/microfiber.jpg', category: 'Premium Fabrics', name: 'Gym Towel' },
+  { src: '/kids.png', category: 'Premium Fabrics', name: 'Gym Towel' },
   // Luxury Bedding
   { src: '/White Bed Sheet.png', category: 'Bed Linen', name: 'Premium Bedsheet Set' },
   { src: '/Printed Bed Sheet.png', category: 'Bed Linen', name: 'Premium Printed Bedsheet Set' },
@@ -254,3 +254,4 @@ export default function Gallery() {
     </div>
   );
 }
+
