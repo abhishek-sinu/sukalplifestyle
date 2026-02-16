@@ -1,9 +1,26 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
+import { useLocation, useNavigate } from 'react-router-dom';
 import { FaSearch, FaBed, FaCouch, FaThLarge } from 'react-icons/fa';
 import Header from './Header';
 import Footer from './Footer';
 
 const galleryImages = [
+      // Hospitality (all white hotel/hospital products)
+      { src: '/White Bed Sheet.png', category: 'Hospitality', name: 'White Bed Sheet' },
+      { src: '/HP-White Bedsheet.png', category: 'Hospitality', name: 'White Bedsheet' },
+      { src: '/Duvet & Pillow Set.png', category: 'Hospitality', name: 'Duvet & Pillow Set' },
+      { src: '/face.png', category: 'Hospitality', name: 'White Face Towel' },
+      { src: '/bath.png', category: 'Hospitality', name: 'White Bath Towel' },
+      { src: '/hand.png', category: 'Hospitality', name: 'White Hand Towel' },
+      { src: '/spa.png', category: 'Hospitality', name: 'White Spa Towel' },
+      //Home Furnishing
+    { src: '/door-mat.png', category: 'Home Furnishing', name: 'Door Mat' },
+    { src: '/category-fabrics.jpg', category: 'Home Furnishing', name: 'Door Screen' },
+    { src: '/sofa cover.png', category: 'Home Furnishing', name: 'Sofa Cover' },
+    { src: '/bed-runner.png', category: 'Home Furnishing', name: 'Bed Runner' },
+    { src: '/table-runner.png', category: 'Home Furnishing', name: 'Table Runner' },
+    { src: '/runner.png', category: 'Home Furnishing', name: 'Runner' },
+    { src: '/bed-cover.png', category: 'Home Furnishing', name: 'Bed Cover' },
   // Bath Linen
   { src: '/bath.png', category: 'Bath Linen', name: 'Bath Towel' },
   { src: '/beach.png', category: 'Bath Linen', name: 'Beach Towel' },
@@ -11,9 +28,11 @@ const galleryImages = [
   { src: '/hand.png', category: 'Bath Linen', name: 'Hand Towel' },
   { src: '/spa.png', category: 'Bath Linen', name: 'Spa Towel' },
   { src: '/Gym.png', category: 'Bath Linen', name: 'Gym Towel' },
-  { src: '/bamboo.jpg', category: 'Bath Linen', name: 'Gym Towel' },
-  { src: '/microfiber.jpg', category: 'Bath Linen', name: 'Gym Towel' },
-  { src: '/kids.png', category: 'Bath Linen', name: 'Gym Towel' },
+  { src: '/bamboo.jpg', category: 'Bath Linen', name: 'Bamboo Pattern Towel' },
+  { src: '/microfiber.jpg', category: 'Bath Linen', name: 'Micro Fiber Towel' },
+  { src: '/kids.png', category: 'Bath Linen', name: 'Baby hood Towel' },
+  { src: '/baby-hood.png', category: 'Bath Linen', name: 'Baby hood Towel' },
+  { src: '/printed-towel.png', category: 'Bath Linen', name: 'Printed Towel' },
   // Luxury Bedding
   { src: '/White Bed Sheet.png', category: 'Bed Linen', name: 'Premium Bedsheet Set' },
   { src: '/Printed Bed Sheet.png', category: 'Bed Linen', name: 'Premium Printed Bedsheet Set' },
@@ -33,8 +52,8 @@ const galleryImages = [
   { src: '/HP-Patient Uniform.png', category: 'Hospital Products', name: 'Patient Uniform Blue' },
   { src: '/HP-Patient Unifrom.png', category: 'Hospital Products', name: 'Patient Unifrom White' },
   { src: '/HP-pillow and pillow cover.png', category: 'Hospital Products', name: 'Pillow and Pillow Cover' },
-  { src: '/HP-Scrub Suit Nurse.png', category: 'Hospital Products', name: 'Scrub Suit Nurse' },
-  { src: '/HP-Scrub Suit.png', category: 'Hospital Products', name: 'Scrub Suit' },
+  { src: '/HP-Scrub Suit Nurse.png', category: 'Hospital Products', name: 'Scrub Suit Women' },
+  { src: '/HP-Scrub Suit.png', category: 'Hospital Products', name: 'Scrub Suit Men' },
   { src: '/HP-Staff Uniform.png', category: 'Hospital Products', name: 'Staff Uniform' }
 ];
 
@@ -48,7 +67,20 @@ const categories = [
 ];
 
 export default function Gallery() {
+  const location = useLocation();
+  const navigate = useNavigate();
   const [activeCategory, setActiveCategory] = useState('All');
+    // Sync activeCategory with URL ?category=... param
+    useEffect(() => {
+      const params = new URLSearchParams(location.search);
+      const urlCategory = params.get('category');
+      if (urlCategory && categories.includes(urlCategory)) {
+        setActiveCategory(urlCategory);
+      } else {
+        setActiveCategory('All');
+      }
+      // eslint-disable-next-line
+    }, [location.search]);
   const [zoomImg, setZoomImg] = useState(null); // { src, name }
   const [highlightedProduct, setHighlightedProduct] = useState(null); // name of highlighted product
   const [searchTerm, setSearchTerm] = useState('');
@@ -107,7 +139,14 @@ export default function Gallery() {
                 ? 'bg-[#101c36] text-white border-[#101c36]'
                 : 'bg-white text-[#101c36] border-gray-300 hover:bg-[#e7e1d8]'
             }`}
-            onClick={() => setActiveCategory(cat)}
+            onClick={() => {
+              setActiveCategory(cat);
+              if (cat === 'All') {
+                navigate('/gallery');
+              } else {
+                navigate(`/gallery?category=${encodeURIComponent(cat)}`);
+              }
+            }}
           >
             {cat}
           </button>

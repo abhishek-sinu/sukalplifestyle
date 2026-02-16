@@ -1,9 +1,123 @@
+// Hero categories for Multi-Card Hero Grid
+import { useEffect, useState } from 'react';
 import { FaInstagram, FaFacebookF, FaTwitter, FaYoutube, FaMapMarkerAlt, FaPhoneAlt, FaEnvelope, FaSearch, FaUser, FaShoppingBag } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 import Header from './Header';
 import Footer from './Footer';
 
-import { useState } from 'react';
+// Simple slideshow component for hero section
+function HeroSlideshow() {
+  const slides = [
+    {
+      image: '/hero-banner.jpg',
+      title: 'Crafted for Elegance',
+      subtitle: 'Premium Textile & Lifestyle',
+      description: 'Discover our curated collection of premium fabrics, bedding, and home furnishings — designed with timeless sophistication.',
+      cta1: { label: 'EXPLORE COLLECTIONS', link: '/gallery' },
+      cta2: { label: 'OUR STORY', link: '/about' }
+    },
+    {
+      image: '/White Bed Sheet.png',
+      title: 'Sleep in Luxury',
+      subtitle: 'Premium Bed Linen',
+      description: 'Experience the comfort of our premium bedsheets and duvets, crafted for restful nights.',
+      cta1: { label: 'Shop Bed Linen', link: '/gallery?category=Bed%20Linen' },
+      cta2: { label: 'Learn More', link: '/about' }
+    },
+    {
+      image: '/bath.png',
+      title: 'Spa at Home',
+      subtitle: 'Bath Linen Collection',
+      description: 'Indulge in plush towels and bath linens for a spa-like experience every day.',
+      cta1: { label: 'Shop Bath Linen', link: '/gallery?category=Bath%20Linen' },
+      cta2: { label: 'Our Story', link: '/about' }
+    },
+    {
+      image: '/category-furnishing-DhuIuprn.jpg',
+      title: 'Furnish with Style',
+      subtitle: 'Home Furnishing',
+      description: 'Discover runners, covers, and mats to elevate your living spaces.',
+      cta1: { label: 'Shop Home Furnishing', link: '/gallery?category=Home%20Furnishing' },
+      cta2: { label: 'Our Story', link: '/about' }
+    }
+  ];
+  const [current, setCurrent] = useState(0);
+  useEffect(() => {
+    const timer = setTimeout(() => setCurrent((current + 1) % slides.length), 6000);
+    return () => clearTimeout(timer);
+  }, [current]);
+  return (
+    <section className="relative flex items-center justify-start min-h-[100vh] pt-32 pb-24 px-8 bg-gradient-to-br from-[#0a183d]/80 to-[#fff]/60 overflow-hidden">
+      <img
+        src={slides[current].image}
+        alt={slides[current].title}
+        className="absolute inset-0 w-full h-full object-cover object-center z-0 opacity-80 transition-all duration-700"
+      />
+      <div className="relative z-10 max-w-2xl text-left animate-fadeIn">
+        <div className="uppercase tracking-widest text-yellow-600 font-semibold text-sm mb-2">{slides[current].subtitle}</div>
+        <h1 className="text-5xl md:text-6xl font-serif font-bold text-white drop-shadow-lg leading-tight">
+          {slides[current].title.includes('Elegance') ? (
+            <>
+              Crafted for <span className="italic text-yellow-300">Elegance</span>
+            </>
+          ) : slides[current].title}
+        </h1>
+        <p className="mt-6 text-lg text-white/90 font-medium max-w-lg bg-black/60 rounded px-4 py-2">
+          {slides[current].description}
+        </p>
+        <div className="mt-8 flex gap-4">
+          <Link to={slides[current].cta1.link} className="px-8 py-3 bg-yellow-500 text-white font-semibold rounded shadow hover:bg-yellow-600 transition">{slides[current].cta1.label}</Link>
+          <Link to={slides[current].cta2.link} className="px-8 py-3 border border-white text-white font-semibold rounded shadow hover:bg-white hover:text-yellow-700 transition">{slides[current].cta2.label}</Link>
+        </div>
+        {/* Slide indicators */}
+        <div className="flex gap-2 mt-8">
+          {slides.map((_, idx) => (
+            <button
+              key={idx}
+              className={`w-3 h-3 rounded-full border-2 ${current === idx ? 'bg-yellow-500 border-yellow-500' : 'bg-white/40 border-white/60'} transition-all`}
+              onClick={() => setCurrent(idx)}
+              aria-label={`Go to slide ${idx + 1}`}
+            />
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+// Hero categories for Multi-Card Hero Grid
+const heroCategories = [
+  {
+    name: "Bath Linen",
+    image: "/bath.png",
+    description: "Luxurious towels and linens for a spa-like experience.",
+    link: "/gallery?category=Bath%20Linen"
+  },
+  {
+    name: "Bed Linen",
+    image: "/White Bed Sheet.png",
+    description: "Premium bedsheets and comforters for restful nights.",
+    link: "/gallery?category=Bed%20Linen"
+  },
+  {
+    name: "Hospital Products",
+    image: "/HP-White Bedsheet.png",
+    description: "Quality linens and uniforms for healthcare and hospitality.",
+    link: "/gallery?category=Hospital%20Products"
+  },
+  {
+    name: "Hospitality",
+    image: "/Duvet & Pillow Set.png",
+    description: "White essentials for hotels and hospitals.",
+    link: "/gallery?category=Hospitality"
+  },
+  {
+    name: "Home Furnishing",
+    image: "/bed-runner.png",
+    description: "Stylish runners, covers, and mats for your home.",
+    link: "/gallery?category=Home%20Furnishing"
+  }
+];
 
 function App() {
   const [modalOpen, setModalOpen] = useState(false);
@@ -23,29 +137,10 @@ function App() {
       <div className="min-h-screen bg-white">
       <Header />
 
-      {/* Hero Section */}
-      <section className="relative flex items-center justify-start min-h-[100vh] pt-32 pb-24 px-8 bg-gradient-to-br from-[#0a183d]/80 to-[#fff]/60">
-        <img
-          src="/hero-banner.jpg"
-          alt="Luxury Fabric Background"
-          className="absolute inset-0 w-full h-full object-cover object-center z-0 opacity-80"
-        />
-        <div className="relative z-10 max-w-2xl text-left">
-          <div className="uppercase tracking-widest text-yellow-600 font-semibold text-sm mb-2">Premium Textile & Lifestyle</div>
-          <h1 className="text-5xl md:text-6xl font-serif font-bold text-white drop-shadow-lg leading-tight">
-            Crafted for <span className="italic text-yellow-300">Elegance</span>
-          </h1>
-          <p className="mt-6 text-lg text-white/90 font-medium max-w-lg">
-            Discover our curated collection of premium fabrics, bedding, and home furnishings — designed with timeless sophistication.
-          </p>
-          <div className="mt-8 flex gap-4">
-            <Link to="/gallery" className="px-8 py-3 bg-yellow-500 text-white font-semibold rounded shadow hover:bg-yellow-600 transition">EXPLORE COLLECTIONS</Link>
-            <Link to="/about" className="px-8 py-3 border border-white text-white font-semibold rounded shadow hover:bg-white hover:text-yellow-700 transition">OUR STORY</Link>
-          </div>
-        </div>
-      </section>
+{/* Hero Section - Slideshow */}
+<HeroSlideshow />
 
-      {/* Shop by Category Section */}
+      {/* Multi-Card Hero Grid for Categories */}
       <section id="collections" className="bg-[#faf8f5] py-20 px-4">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-12">
@@ -53,43 +148,15 @@ function App() {
             <h2 className="text-4xl md:text-5xl font-serif font-bold text-gray-900 mb-2">Shop by Category</h2>
             <div className="mx-auto w-24 h-1 bg-yellow-500 rounded mt-2 mb-0"></div>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {/* Bedding */}
-            <div className="relative group overflow-hidden rounded-xl shadow-lg">
-              <img src="/category-bedding.jpg" alt="Bedding" className="w-full h-96 object-cover group-hover:scale-105 transition-transform duration-500" />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent z-10"></div>
-              <div className="absolute bottom-6 left-6 z-20">
-                <div className="uppercase text-yellow-400 text-xs font-semibold tracking-widest mb-1">Luxurious Comfort</div>
-                <div className="text-2xl font-serif font-bold text-white">Bedding</div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+            {heroCategories.map(cat => (
+              <div key={cat.name} className="bg-white rounded-xl shadow-lg overflow-hidden flex flex-col items-center p-6">
+                <img src={cat.image} alt={cat.name} className="w-full h-40 object-cover mb-4 rounded" />
+                <h3 className="text-2xl font-bold mb-2">{cat.name}</h3>
+                <p className="text-gray-600 mb-4 text-center">{cat.description}</p>
+                <a href={cat.link} className="text-[#C2410C] font-semibold hover:underline">View Collection</a>
               </div>
-            </div>
-            {/* Bath */}
-            <div className="relative group overflow-hidden rounded-xl shadow-lg">
-              <img src="/category-bath.jpg" alt="Bath" className="w-full h-96 object-cover group-hover:scale-105 transition-transform duration-500" />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent z-10"></div>
-              <div className="absolute bottom-6 left-6 z-20">
-                <div className="uppercase text-yellow-400 text-xs font-semibold tracking-widest mb-1">Spa Experience</div>
-                <div className="text-2xl font-serif font-bold text-white">Bath</div>
-              </div>
-            </div>
-            {/* Furnishings */}
-            <div className="relative group overflow-hidden rounded-xl shadow-lg">
-              <img src="/category-furnishing-DhuIuprn.jpg" alt="Furnishings" className="w-full h-96 object-cover group-hover:scale-105 transition-transform duration-500" />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent z-10"></div>
-              <div className="absolute bottom-6 left-6 z-20">
-                <div className="uppercase text-yellow-400 text-xs font-semibold tracking-widest mb-1">Elevated Living</div>
-                <div className="text-2xl font-serif font-bold text-white">Furnishings</div>
-              </div>
-            </div>
-            {/* Fabrics */}
-            <div className="relative group overflow-hidden rounded-xl shadow-lg">
-              <img src="/category-fabrics.jpg" alt="Fabrics" className="w-full h-96 object-cover group-hover:scale-105 transition-transform duration-500" />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent z-10"></div>
-              <div className="absolute bottom-6 left-6 z-20">
-                <div className="uppercase text-yellow-400 text-xs font-semibold tracking-widest mb-1">Raw Luxury</div>
-                <div className="text-2xl font-serif font-bold text-white">Fabrics</div>
-              </div>
-            </div>
+            ))}
           </div>
         </div>
       </section>
