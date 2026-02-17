@@ -2,17 +2,29 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://sukalplifestyles.com/</loc>
-    <lastmod>2026-02-16</lastmod>
-    <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://sukalplifestyles.com/products</loc>
-    <lastmod>2026-02-16</lastmod>
-    <priority>0.8</priority>
+    <loc>https://sukalplifestyles.com/gallery</loc>
+  </url>
+  <url>
+    <loc>https://sukalplifestyles.com/gallery?category=Bed%20Linen</loc>
+  </url>
+  <url>
+    <loc>https://sukalplifestyles.com/gallery?category=Bath%20Linen</loc>
+  </url>
+  <url>
+    <loc>https://sukalplifestyles.com/gallery?category=Home%20Furnishing</loc>
+  </url>
+  <url>
+    <loc>https://sukalplifestyles.com/gallery?category=Hospitality</loc>
+  </url>
+  <url>
+    <loc>https://sukalplifestyles.com/about</loc>
   </url>
   <url>
     <loc>https://sukalplifestyles.com/contact</loc>
-    <lastmod>2026-02-16</lastmod>
-    <priority>0.5</priority>
+  </url>
+    <url>
+    <loc>https://sukalplifestyles.com/gallery?category=Hospital%20Products</loc>
   </url>
 </urlset>
